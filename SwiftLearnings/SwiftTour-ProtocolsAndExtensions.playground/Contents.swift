@@ -46,3 +46,23 @@ print(7.simpleDescription)
 var inty: Int = 0
 inty.adjust()
 
+// How to create protocol for all number types?
+// experiment asks for a property. but needs explicit type?
+// where are union types??
+//protocol AbsoluteValueProtocol {
+//
+//    var absoluteValue: Numeric  { get }
+//
+//
+//}
+protocol AbsDouble {
+    var absoluteValue: Double { get }
+}
+extension Double: AbsDouble {
+    var absoluteValue: Double {
+        return (self < 0) ? self * -1 : self
+    }
+}
+
+22.0.absoluteValue
+-22.0.absoluteValue
