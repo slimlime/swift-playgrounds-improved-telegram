@@ -86,3 +86,39 @@ let coolSqDesc = coolSquare.simpleDescription()
 let coolCircle = Circle(radius: 4)
 let coolCiDesc = coolCircle.simpleDescription()
 
+
+// Computed properties getters setters will-/did- Set
+
+class EquilateralTriangleCompute: NamedShape {
+    // circular referencing if computed properties for all at init?
+    // but don't need to worry about having both get and set if constant let...
+    // keep all properties consistent to geometry logic.
+    var sideLength: Double
+    var perimeter: Double {
+        get { return sideLength * 3 }
+        set { sideLength = newValue / 3}
+    }
+    var area: Double {
+        get {
+            return sideLength * sideLength / 2
+        }
+        set (newArea) {
+            sideLength = newArea * 2 / sideLength
+        }
+    }
+    
+    init(sideLength: Double) {
+        self.sideLength = sideLength
+        super.init(numSides: 3, name: "Triangle")
+    }
+    override func simpleDescription() -> String {
+        return "This is \(name) with sides of length \(sideLength) each, area \(area) and perimeter \(perimeter)"
+    }
+}
+let mutableEqTriangle = EquilateralTriangleCompute(sideLength: 3)
+mutableEqTriangle.simpleDescription()
+
+
+class EquilateralTriangle: NamedShape {
+    
+}
