@@ -45,8 +45,8 @@ enum Suit: String {
             return "clubs"
 
 // Could also return string value if set enum as
-//        default:
-//            return String(self.rawValue)
+        default:
+            return String(self.rawValue)
         }
     }
 }
