@@ -1,5 +1,6 @@
 
 protocol ExampleProtocol {
+    // computed `get` for types that can't have stored properties?// ~. mandatory get or get set for protocols
     var simpleDescription: String { get }
     // mutating func required for methods that modify Struct properties... classes are fine...
     mutating func adjust()
@@ -30,3 +31,18 @@ var b = SimpleStructure()
 b.simpleDescription
 b.adjust()
 let bDescription = b.simpleDescription
+
+extension Int: ExampleProtocol {
+    var simpleDescription: String {
+        return "The int number \(self)"
+    }
+
+    mutating func adjust() {
+        self += 42
+    }
+}
+
+print(7.simpleDescription)
+var inty: Int = 0
+inty.adjust()
+
