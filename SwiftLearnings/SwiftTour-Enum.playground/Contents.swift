@@ -13,7 +13,7 @@ enum Rank: Int {
             return String(self.rawValue)
         }
     }
-
+    
 }
 /// Return the higher card based on Rank rawValue
 func whichIsHiCard(card1: Rank, card2: Rank) -> Rank {
@@ -66,4 +66,33 @@ let heartsDesc = hearts.simpleDescription()
 
 Suit.spades.simpleDescription()
 Suit.spades
+
+
+// Interesting enum  case-specific values associated.
+// Server response result values sunrise sunset
+// Server failure response gives an error message...
+
+enum ServerResponse {
+    case result(String, String)
+    case failure(String)
+    case howMuchCheeseDoWeNeed(Int)
+}
+
+let success = ServerResponse.result("6:00 am", "8:09 pm")
+let failure = ServerResponse.failure("Cheese where?!?!🧀")
+
+// But this switch eg will only function on success?
+switch success {
+case let .result(sunrise, sunset):
+    print("Sunrise is at \(sunrise) and sunset is at \(sunset).")
+case let .failure(message):
+    print("Response failure... \(message)")
+case let .howMuchCheeseDoWeNeed(numCheeseWheels):
+    print("We need \(numCheeseWheels) 🧀 wheels")
+}
+
+// Prints "Sunrise is at 6:00 am and sunset is at 8:09 pm
+
+
+let lol = ServerResponse.howMuchCheeseDoWeNeed(2)
 
