@@ -120,5 +120,34 @@ mutableEqTriangle.simpleDescription()
 
 
 class EquilateralTriangle: NamedShape {
+    let sideLength: Double
     
+    init(sideLength: Double) {
+        self.sideLength = sideLength
+        super.init(numSides: 3, name: "Triangle")
+    }
+    
+    // Should have had perimeter and area in the parent...
+    func perimeter() -> Double {
+        return sideLength * 3
+    }
+    func area() -> Double {
+        return sideLength * sideLength / 2
+    }
 }
+// try using protocols next time.
+extension EquilateralTriangle {
+    func extendedDescription() -> String {
+        return "This is \(name) with sides of length \(sideLength) each, area \(area) and perimeter \(perimeter)"
+    }
+}
+extension NamedShape {
+    // Trying to think of a use case that would require extension of the generic parent... but not specialised children subclasses.?
+    func draw() {
+        print("How 2 draw??!?!??!")
+    }
+}
+let niceEqTriangle = EquilateralTriangle(sideLength: 3)
+niceEqTriangle.extendedDescription()
+niceEqTriangle.simpleDescription()
+
