@@ -67,9 +67,20 @@ func numbersHaveAnyMatches(
     return false
 }
 
-let numbers = [1, 2, 3, 5, 11]
-let hasMoreThanEleven = numbersHaveAnyMatches(array: numbers, matcher: {
+let numbers = [1, 2, 3, 5, 13]
+let numBiggerThanElevenClosure: (Int) -> Bool = {
     $0 > 11
 }
+let hasMoreThanEleven = numbersHaveAnyMatches(array: numbers, matcher: numBiggerThanElevenClosure
 )
+
+
 print(hasMoreThanEleven)
+
+let treble = numbers.map({ $0 * 3 })
+
+let zeroedOdds = numbers.map({ (number: Int) -> Int in
+    let num = (number % 2 == 1) ? 0 : number
+    return num
+})
+
