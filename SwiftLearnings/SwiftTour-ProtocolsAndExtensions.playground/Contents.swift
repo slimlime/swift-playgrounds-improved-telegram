@@ -1,3 +1,7 @@
+//: ## Protocols and Extensions
+//:
+//: Use `protocol` to declare a protocol.
+//:
 
 protocol ExampleProtocol {
     // computed `get` for types that can't have stored properties?// ~. mandatory get or get set for protocols
@@ -26,6 +30,7 @@ struct SimpleStructure: ExampleProtocol {
         simpleDescription += " (adjusted)"
     }
 }
+abs(1)
 
 var b = SimpleStructure()
 b.simpleDescription
