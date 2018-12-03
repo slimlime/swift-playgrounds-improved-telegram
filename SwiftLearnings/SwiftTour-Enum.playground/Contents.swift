@@ -78,6 +78,7 @@ enum ServerResponse {
     case howMuchCheeseDoWeNeed(Int)
 }
 
+// The sunrise sunset times are extracted in the switch.
 let success = ServerResponse.result("6:00 am", "8:09 pm")
 let failure = ServerResponse.failure("Cheese where?!?!🧀")
 
@@ -96,3 +97,18 @@ case let .howMuchCheeseDoWeNeed(numCheeseWheels):
 
 let lol = ServerResponse.howMuchCheeseDoWeNeed(2)
 
+struct Card {
+    let rank: Rank
+    let suit: Suit
+    
+    func simpleDescription() -> String {
+        return "The \(rank.simpleDescription()) of \(suit.simpleDescription())"
+    }
+}
+
+let fourOfSpades = Card(rank: Rank.three, suit: Suit.spades)
+let fiveOfClubs = Card(rank: .three
+    , suit: .clubs)
+
+let cards: [Card] = [fourOfSpades, fiveOfClubs]
+cards.forEach({ print($0.simpleDescription()) })
