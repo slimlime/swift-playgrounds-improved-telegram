@@ -26,7 +26,7 @@ if let randomNineteenCard = Rank(rawValue: 19) {
     print("Invalid rawValue no enum case matched")
 }
 
-enum Suit: String {
+enum Suit {
     case diamonds, clubs, hearts, spades
     
     func colour() -> String {
@@ -43,10 +43,10 @@ enum Suit: String {
             return "diamonds"
         case .clubs:
             return "clubs"
-
-// Could also return string value if set enum as
-        default:
-            return String(self.rawValue)
+        case .hearts:
+            return "hearts"
+        case .spades:
+            return "spades"
         }
     }
 }
