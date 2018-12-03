@@ -13,12 +13,22 @@ enum Rank: Int {
             return String(self.rawValue)
         }
     }
+
+}
+/// Return the higher card based on Rank rawValue
+func whichIsHiCard(card1: Rank, card2: Rank) -> Rank {
+    if card1.rawValue > card2.rawValue {
+        return card1
+    }
+    return card2
 }
 
 let ace = Rank.ace // string case
 let aceRawVal = ace.rawValue // number value
 let threeCard = Rank.three // string case "three"
 let threeCardRawVal = threeCard.rawValue // raw num 3
+let theHiThree = whichIsHiCard(card1: ace, card2: threeCard)
+
 // returns nil if invalid rank based off rawValue initialiser
 if let randomNineteenCard = Rank(rawValue: 19) {
     print(randomNineteenCard, "NINETEEN. NINETEEN? NIIINETEEEEN!")
