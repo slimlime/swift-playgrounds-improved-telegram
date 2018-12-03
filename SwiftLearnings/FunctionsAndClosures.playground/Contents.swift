@@ -55,10 +55,10 @@ func makeIncrementer(step: Int) -> ((Int) -> Int) {
 let incrementByFive = makeIncrementer(step: 5)
 let onePlusFiveIsSix = incrementByFive(1)
 //
-func goArrayDoSomeFunctionMatch(
+func numbersHaveAnyMatches(
     array: [Int],
     matcher: (Int) -> Bool
-) -> Bool {
+    ) -> Bool {
     for item in array {
         if matcher(item) == true { // don't need to explicit == true
             return true
@@ -66,3 +66,10 @@ func goArrayDoSomeFunctionMatch(
     }
     return false
 }
+
+let numbers = [1, 2, 3, 5, 11]
+let hasMoreThanEleven = numbersHaveAnyMatches(array: numbers, matcher: {
+    $0 > 11
+}
+)
+print(hasMoreThanEleven)
