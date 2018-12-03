@@ -19,4 +19,41 @@ let ace = Rank.ace // string case
 let aceRawVal = ace.rawValue // number value
 let threeCard = Rank.three // string case "three"
 let threeCardRawVal = threeCard.rawValue // raw num 3
+// returns nil if invalid rank based off rawValue initialiser
+if let randomNineteenCard = Rank(rawValue: 19) {
+    print(randomNineteenCard, "NINETEEN. NINETEEN? NIIINETEEEEN!")
+} else {
+    print("Invalid rawValue no enum case matched")
+}
+
+enum Suit: String {
+    case diamonds, clubs, hearts, spades
+    
+    func colour() -> String {
+        switch self {
+        case .diamonds, .hearts:
+            return "red"
+        case .clubs, .spades:
+            return "black"
+        }
+    }
+    func simpleDescription() -> String {
+        switch self {
+        case .diamonds:
+            return "diamonds"
+        case .clubs:
+            return "clubs"
+
+// Could also return string value if set enum as
+//        default:
+//            return String(self.rawValue)
+        }
+    }
+}
+
+let hearts = Suit.hearts
+let heartsDesc = hearts.simpleDescription()
+
+Suit.spades.simpleDescription()
+Suit.spades
 
